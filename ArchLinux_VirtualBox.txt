@@ -1,0 +1,10 @@
+1. The ready-to-use VirtualBox image of Arch Linux could be downlaoded from here (the latest image version was 201507 at the time of writing this note): 
+
+http://www.osboxes.org/arch-linux/
+
+2. After starting the VM with VirtualBox and loginging in using the username and password provided on the web page of step 1:
+
+2.1 perform a full update: start a terminal, then:
+sudo pacman -Syyu
+(you will be asked to enter the root password)
+
