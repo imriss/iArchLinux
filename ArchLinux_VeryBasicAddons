@@ -1,0 +1,38 @@
+# Here we list the steps to insatll a few packages useful for many others:
+
+# 0. 
+mkdir sandbox
+cd sandbox
+
+# 1. Install package-query
+# download it:
+wget https://aur.archlinux.org/packages/pa/package-query/package-query.tar.gz
+tar -xvf package-query.tar.gz
+cd package-query
+makepkg -s
+# insatll it (dependng on the version of the package, the ?s would be digits and numbers):
+sudo pacman -U package-query-?.?-???.pkg.tar.xz
+cd ..
+
+# 2. Install yaourt
+wget https://aur.archlinux.org/packages/ya/yaourt/yaourt.tar.gz
+tar -xvf yaourt.tar.gz
+cd yaourt
+makepkg -s
+# insatll it (dependng on the version of the package, the ?s would be digits and numbers):
+sudo pacman -U yaourt-?.?-???-any.pkg.tar.xz
+cd ..
+
+# 3. Install reflector
+yaourt -S reflector
+sudo reflector --verbose --country 'United States' -l 200 -p http --sort rate --save /etc/pacman.d/mirrorlist
+
+# 4. Also install git, customizepkg, vim, rsync
+sudo pacman -S git
+yaourt -S customizepkg-git
+sudo pacman -S vim
+sudo pacman -S rsync
+
+# 5. Update everything
+sudo pacman -Syyu
+yaourt -Syu --aur
